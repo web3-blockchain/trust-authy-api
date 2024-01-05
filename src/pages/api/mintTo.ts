@@ -1,8 +1,9 @@
 import { mintTo } from "@/lib/ERC721TA/mintTo";
 import { env } from "@/lib/config";
+import { utils } from 'ethers';
 
 function isValidEthereumAddress(address: string) {
-  return /^0x[a-fA-F0-9]{40}$/.test(address);
+  return utils.isAddress(address);
 }
 
 export default async function handler(req: any, res: any) {
