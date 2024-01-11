@@ -16,15 +16,20 @@ export default async function handler(req: any, res: any) {
   }
 
   if (req.method === 'POST') {
-    console.log(req.body);
-    const toAddress = req.body.to;
-    if (!toAddress || !isValidEthereumAddress(toAddress)) {
-      return res.status(400).json({ error: 'Invalid Ethereum address' });
+    try {
+      console.log(req.body);
+      const toAddress = req.body.to;
+      if (!toAddress || !isValidEthereumAddress(toAddress)) {
+        return res.status(400).json({ error: 'Invalid Ethereum address' });
+      }
+
+      const tx = await mintTo(toAddress, env.SBT_METADATA_URI);
+      return res.status(200).json({ transaction: tx });
+    } catch (error) {
+      console.error(error);
+
+      return res.status(500).json({ error: 'Internal Server Error' });
     }
-
-    const tx = await mintTo(toAddress, env.SBT_METADATA_URI);
-
-    return res.status(200).json({ transaction: tx });
   }
 
   res.setHeader('Allow', 'POST');
