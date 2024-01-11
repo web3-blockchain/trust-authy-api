@@ -1,5 +1,5 @@
-import { mintTo } from "@/lib/ERC721TA/mintTo";
-import { env } from "@/lib/config";
+import { mintTo } from '@/lib/ERC721TA/mintTo';
+import { env } from '@/lib/config';
 import { utils } from 'ethers';
 
 function isValidEthereumAddress(address: string) {
@@ -9,7 +9,7 @@ function isValidEthereumAddress(address: string) {
 export default async function handler(req: any, res: any) {
   if (req.method === 'POST') {
     console.log(req.body);
-    const toAddress = req.body.to
+    const toAddress = req.body.to;
     if (!toAddress || !isValidEthereumAddress(toAddress)) {
       return res.status(400).json({ error: 'Invalid Ethereum address' });
     }

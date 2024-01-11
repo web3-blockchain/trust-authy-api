@@ -10,7 +10,6 @@ export const env = {
   PRIVATE_KEY: process.env.PRIVATE_KEY ?? defultPrvKey,
   DEPLOYER_ADDRESS: process.env.DEPLOYER_ADDRESS ?? defultAddress,
 
-  ERC1967PROXY_CONTRACT_ADDRESS:
-    process.env.ERC1967PROXY_CONTRACT_ADDRESS ?? '0x1Eb006DEf0A4DAdEDf7d7c308E6A677becF1eb30',
-  SBT_METADATA_URI: process.env.SBT_METADATA_URI ?? 'https://ipfs.io/ipfs/Qmdb3eUWuubWSisbHwvgEc4PJSiJCfX78G6bqKy7chbz1N/1',
+  ERC1967PROXY_CONTRACT_ADDRESS: '0x1Eb006DEf0A4DAdEDf7d7c308E6A677becF1eb30',
+  SBT_METADATA_URI: 'https://trust-authy-api.vercel.app/metadata/sbt.json',
 };
